@@ -13,7 +13,7 @@ type Props = {
 }
 
 
-const SingleTodo = ({ todo, todos, setTodos }: Props) => {
+const SingleTodo = ({ todo, todos, setTodos}: Props) => {
   
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
@@ -27,6 +27,10 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
       setEdit(false)
     }
 
+    const handleDelete = (id: number) => {
+      setTodos(todos.filter((todo) => todo.id !== id))
+    };
+
     const handleDone = (id: number) => {
       setTodos(
         todos.map((todo) =>
@@ -35,9 +39,6 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
       );
     };
     
-    const handleDelete = (id: number) => {
-      setTodos(todos.filter((todo) => todo.id !== id))
-    };
     
 
     const inputRef = useRef<HTMLInputElement>(null)
@@ -50,7 +51,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
 
 return (
 
-  <form className='todos__singles' onSubmit={(e)=>handleEdit(e,todo.id)}>
+  <form className='todos__singles' onSubmit={(e)=>handleEdit(e, todo.id)}>
     {edit ? (
         <input
           value={editTodo}

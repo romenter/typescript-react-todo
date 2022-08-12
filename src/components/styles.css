@@ -53,11 +53,11 @@
 
 .todos {
     display: flex;
-    width: 47.5%;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 90.5%;
     padding: 15px;
     border-radius: 5px;
-    background-color:#c3a776 ;
     
 }
 
@@ -68,12 +68,13 @@
 
 .todos__singles{
     display: flex;
+    width: 29.5%;
     border-radius: 5px;
     padding: 20px;
     margin-top: 15px;
     justify-content: space-around;
     background-image: url(https://previews.123rf.com/images/mtkang/mtkang1201/mtkang120100645/11823568-blancas-texturas-de-papel-arrugado-como-el-uso-de-dise%C3%B1o-.jpg);
-    tansition: 0.2s
+
 }
 
 .todos__singles:hover{
@@ -98,11 +99,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 1100px){
-    .todos{
-        width: 45%;
-    }
-}
+
 
 @media (max-width: 700px){
     .input{
@@ -113,12 +110,15 @@
         margin-bottom: 10px;
     }
 
-    .container{
-        width: 95%;
-        flex-direction: column;
+    
+    .todos__singles{
+        width: 80%;
     }
 }
 
-.remove {
-    background-color: #c38976;
+@media (max-width: 800px){
+    .todos__single{
+        width: 45%;
+    }
 }
+
